@@ -47,11 +47,26 @@ h3.widgets-title {
   justify-content: space-between;
 }
 
+.blue {
+  background-color: var(--color-primary);
+}
+.green {
+  background-color: var(--color-success);
+}
+.beige {
+  background-color: var(--color-beige);
+}
+.white {
+  background-color: var(--color-white);
+}
+.black {
+  background-color: var(--color-dark);
+}
+
 /* Widget Component */
 .widgetContainer {
   width: 221.32px;
   height: 167px;
-  border: 1px solid grey;
 }
 
 .widget {
@@ -154,21 +169,7 @@ h3.widgets-title {
   margin-left: 4px;
 }
 
-.blue {
-  background-color: var(--color-primary);
-}
-.green {
-  background-color: var(--color-success);
-}
-.beige {
-  background-color: var(--color-beige);
-}
-.white {
-  background-color: var(--color-white);
-}
-.black {
-  background-color: var(--color-dark);
-}
+
 
 /* Switch button styling */
 .switch {
@@ -207,7 +208,7 @@ h3.widgets-title {
   border-radius: 50%;
   border: 0.59px solid var(--color-beige);
   left: -0.59px;
-  top: -1px;
+  top: -1.2px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -228,7 +229,7 @@ h3.widgets-title {
   border-color: var(--color-success);
 }
 
-/* Rounded sliders */
+/* Switch rounded slider */
 .switch .slider.round {
   border-radius: 34px;
 }
@@ -238,26 +239,43 @@ h3.widgets-title {
 }
 
 /* custom checkbox */
-
+.custom-checkbox--container {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .custom-checkbox {
   height: 18px;
   width: 18px;
   outline: 2.3px solid var(--color-dark);
   border-radius: 3px;
-  outline-offset: -2px;
+  outline-offset: -2.3px;
   cursor: pointer;
+  position: relative;
 }
 .custom-checkbox.selected {
   outline: none;
   background-image: url('data:image/svg+xml,<svg width="18" height="18" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.625 0.625H4.375C2.3125 0.625 0.625 2.3125 0.625 4.375V30.625C0.625 32.6875 2.3125 34.375 4.375 34.375H30.625C32.6875 34.375 34.375 32.6875 34.375 30.625V4.375C34.375 2.3125 32.6875 0.625 30.625 0.625ZM15.0813 25.5438C14.35 26.275 13.1688 26.275 12.4375 25.5438L5.70625 18.8125C4.975 18.0812 4.975 16.9 5.70625 16.1687C6.4375 15.4375 7.61875 15.4375 8.35 16.1687L13.75 21.5688L26.65 8.66875C27.3812 7.9375 28.5625 7.9375 29.2938 8.66875C30.025 9.4 30.025 10.5812 29.2938 11.3125L15.0813 25.5438V25.5438Z" fill="%233B755F"/></svg>');
 }
+
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  transition: 0.15s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .custom-checkbox:hover::after {
- content: "";
- position: absolute;
- width: 30px;
- height: 30px;
- border-radius: 50%;
- background-color: grey;
- opacity: 0.5;
- 
+  width: 187.5%;
+  height: 187.5%;
+  border-radius: 50%;
+  background-color: #afc6bd;
+  opacity: 0.5;
+  transition: 0.2;
 }

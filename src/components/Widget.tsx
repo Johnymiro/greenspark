@@ -43,14 +43,17 @@ export const Widget: React.FC<WidgetProps> = ({
             <span>Link to Public Profile</span>
             <div className="custom-checkbox--container">
               {/* hide native checkbox */}
-             {/*  <input
+              {/*  <input
                 className={"custom-checkbox"}
                 type="checkbox"
                 checked={linked}
                 onChange={() => onLinkedChange(id, !linked)}
               /> */}
               {/* visible custom checkbox */}
-              <div onClick={() => onLinkedChange(id, !linked)} className={`custom-checkbox ${linked ? "selected" : ""}`}></div>
+              <div
+                onClick={() => onLinkedChange(id, !linked)}
+                className={`custom-checkbox ${linked ? "selected" : ""}`}
+              ></div>
             </div>
           </div>
           <div className={`${"widgetColors"} ${"widgetBodyItem"}`}>
