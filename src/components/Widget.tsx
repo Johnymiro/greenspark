@@ -1,7 +1,8 @@
 // src/components/Widget.tsx
 import React from "react";
-import styles from "./Widget.module.css";
 import { ProductWidget, WidgetColor } from "../types";
+import {ReactComponent as GreensparkLogo} from "../assets/greenspark-logo.svg"
+import {ReactComponent as GreensparkTitle} from "../assets/greenspark-title.svg"
 
 interface WidgetProps {
   widget: ProductWidget;
@@ -19,57 +20,58 @@ export const Widget: React.FC<WidgetProps> = ({
   const { id, type, amount, action, active, linked, selectedColor } = widget;
 
   React.useEffect(() => {
-    console.log("color slected:", {selectedColor, id})
-  }, [selectedColor])
+    console.log("color slected:", { selectedColor, id });
+  }, [selectedColor]);
 
   return (
-    <div className={styles.widgetContainer}>
-      <div className={styles.widget}>
-        <div className={styles.widgetHeader}>
-          <span className={styles.widgetIcon}>🌱</span>
-          <div className={styles.widgetText}>
-            <p>
-              This product{" "}
-              <strong>
-                {action} {amount} {type}
-              </strong>
-            </p>
+    <div className={"widgetContainer"}>
+      <div className={"widget"}>
+        <div className={"widgetHeader " + selectedColor}>
+          <div className={"widgetIcon"}>
+             <GreensparkLogo className="greenspark-logo" />
+             <GreensparkTitle className="greenspark-title" />
+          </div>
+          <div className={`widgetText`}>
+            <p >This product {action} </p>
+            <span>
+              {amount} {type}
+            </span>
           </div>
         </div>
-        <div className={styles.widgetBody}>
-          <div className={`${styles.widgetToggle} ${styles.widgetBodyItem}`}>
+        <div className={"widgetBody"}>
+          <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
             <span>Link to Public Profile</span>
             <input
-              className={styles.customCheckbox}
+              className={"customCheckbox"}
               type="checkbox"
               checked={linked}
               onChange={() => onLinkedChange(id, !linked)}
             />
           </div>
-          <div className={`${styles.widgetColors} ${styles.widgetBodyItem}`}>
+          <div className={`${"widgetColors"} ${"widgetBodyItem"}`}>
             <label>Badge colour</label>
-            <div className={styles.colors}>
+            <div className={"colors"}>
               {/* Map over colors */}
               {(
                 ["blue", "green", "beige", "white", "black"] as WidgetColor[]
               ).map((color) => (
                 <div
                   key={color}
-                  className={`${styles.colorBox} ${styles[color]}`}
+                  className={`${"colorBox"} ${color} ${selectedColor === color ? "badge-active": ""}`}
                   onClick={() => onColorChange(id, color)}
                 />
               ))}
             </div>
           </div>
-          <div className={`${styles.widgetActivate} ${styles.widgetBodyItem}`}>
+          <div className={`${"widgetActivate"} ${"widgetBodyItem"}`}>
             <span>Activate badge</span>
-            <label className={styles.switch}>
+            <label className={"switch"}>
               <input
                 type="checkbox"
                 checked={active}
                 onChange={() => onActiveChange(id)}
               />
-              <span className={styles.slider}></span>
+              <span className={"slider"}></span>
             </label>
           </div>
         </div>
