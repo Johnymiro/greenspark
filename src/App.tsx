@@ -1,12 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { WidgetsList } from "./components/WidgetsList";
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <h2>Challenge</h2>
+    <div className="main--container">
+        <h3 className="widgets-title">Per product widgets</h3>
+      <div className="widgets--container">
+        <WidgetsList />
       </div>
     </div>
   );
