@@ -3,12 +3,16 @@ import React from "react";
 import { ProductWidget, WidgetColor } from "../types";
 import { ReactComponent as GreensparkLogo } from "../assets/greenspark-logo.svg";
 import { ReactComponent as GreensparkTitle } from "../assets/greenspark-title.svg";
+import { ReactComponent as Tooltip } from "../assets/info_outline.svg";
 
 interface WidgetProps {
   widget: ProductWidget;
   onColorChange: (id: number, color: WidgetColor) => void;
   onActiveChange: (id: number) => void;
   onLinkedChange: (id: number, linked: boolean) => void;
+}
+interface TooltipProps {
+  children: React.ReactNode;
 }
 
 export const Widget: React.FC<WidgetProps> = ({
@@ -17,6 +21,7 @@ export const Widget: React.FC<WidgetProps> = ({
   onActiveChange,
   onLinkedChange,
 }) => {
+  
   const { id, type, amount, action, active, linked, selectedColor } = widget;
 
   React.useEffect(() => {
@@ -40,16 +45,16 @@ export const Widget: React.FC<WidgetProps> = ({
         </div>
         <div className={"widgetBody"}>
           <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
-            <span>Link to Public Profile</span>
+            <div className="widget--tooltip">
+              <span
+                className="widget__tooltip-text"
+              >
+                Link to Public Profile
+                <Tooltip className="profile-tooltip" />
+              </span>
+              <div></div>
+            </div>
             <div className="custom-checkbox--container">
-              {/* hide native checkbox */}
-              {/*  <input
-                className={"custom-checkbox"}
-                type="checkbox"
-                checked={linked}
-                onChange={() => onLinkedChange(id, !linked)}
-              /> */}
-              {/* visible custom checkbox */}
               <div
                 onClick={() => onLinkedChange(id, !linked)}
                 className={`custom-checkbox ${linked ? "selected" : ""}`}
