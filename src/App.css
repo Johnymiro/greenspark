@@ -11,13 +11,6 @@
 body {
   font-family: "Cabin";
 }
-/* .main--container {
- display: flex;
- height: 100vh;
- width: 100vw;
- justify-content: center;
- align-items: center;
-} */
 
 h3.widgets-title {
   font-size: 30px;
@@ -203,8 +196,10 @@ h3.widgets-title {
   background-color: #F9F9F9;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 29.49px;
   border: 0.59px solid #AFC6BD;
+  box-shadow: 0px 0.884669303894043px 5.897795677185059px 0px #00000026 inset;
+
 }
 
 .switch .slider:before {
@@ -213,8 +208,8 @@ h3.widgets-title {
   height: 20.05px;
   width: 20.05px;
   border-radius: 50%;
-  border: 0.68px solid grey;
-  left: -1px;
+  border: 0.59px solid var(--color-beige);
+  left: -0.59px;
   top: -1px;
   background-color: white;
   -webkit-transition: 0.4s;
@@ -230,9 +225,10 @@ h3.widgets-title {
 }
 
 .switch input:checked + .slider:before {
-  -webkit-transform: translateX(20.05px);
-  -ms-transform: translateX(20.05px);
-  transform: translateX(20.05px);
+  -webkit-transform: translateX(19.46px);
+  -ms-transform: translateX(19.46px);
+  transform: translateX(19.46px);
+  border-color: var(--color-success);
 }
 
 /* Rounded sliders */
@@ -242,4 +238,10 @@ h3.widgets-title {
 
 .switch .slider.round:before {
   border-radius: 50%;
+}
+
+/* custom checkbox */
+input[type="checkbox"].custom-checkbox {
+  width: 18px;
+  height: 18px;
 }

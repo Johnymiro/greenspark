@@ -42,7 +42,7 @@ export const Widget: React.FC<WidgetProps> = ({
           <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
             <span>Link to Public Profile</span>
             <input
-              className={"customCheckbox"}
+              className={"custom-checkbox"}
               type="checkbox"
               checked={linked}
               onChange={() => onLinkedChange(id, !linked)}

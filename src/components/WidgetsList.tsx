@@ -20,7 +20,14 @@ export const WidgetsList: React.FC = () => {
 
   const handleActiveChange = (id: number) => {
     setWidgets(prev =>
-      prev.map(widget => ({ ...widget, active: widget.id === id }))
+      prev.map(widget => {
+        // Toggle the active state off if the widget is already active.
+        if (widget.active && widget.id === id) {
+          return { ...widget, active: false };
+        }
+        // Activate the selected widget and deactivate all others.
+        return { ...widget, active: widget.id === id };
+      })
     );
   };
 
