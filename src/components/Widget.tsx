@@ -1,8 +1,8 @@
 // src/components/Widget.tsx
 import React from "react";
 import { ProductWidget, WidgetColor } from "../types";
-import {ReactComponent as GreensparkLogo} from "../assets/greenspark-logo.svg"
-import {ReactComponent as GreensparkTitle} from "../assets/greenspark-title.svg"
+import { ReactComponent as GreensparkLogo } from "../assets/greenspark-logo.svg";
+import { ReactComponent as GreensparkTitle } from "../assets/greenspark-title.svg";
 
 interface WidgetProps {
   widget: ProductWidget;
@@ -28,11 +28,11 @@ export const Widget: React.FC<WidgetProps> = ({
       <div className={"widget"}>
         <div className={"widgetHeader " + selectedColor}>
           <div className={"widgetIcon"}>
-             <GreensparkLogo className="greenspark-logo" />
-             <GreensparkTitle className="greenspark-title" />
+            <GreensparkLogo className="greenspark-logo" />
+            <GreensparkTitle className="greenspark-title" />
           </div>
           <div className={`widgetText`}>
-            <p >This product {action} </p>
+            <p>This product {action} </p>
             <span>
               {amount} {type}
             </span>
@@ -41,12 +41,17 @@ export const Widget: React.FC<WidgetProps> = ({
         <div className={"widgetBody"}>
           <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
             <span>Link to Public Profile</span>
-            <input
-              className={"custom-checkbox"}
-              type="checkbox"
-              checked={linked}
-              onChange={() => onLinkedChange(id, !linked)}
-            />
+            <div className="custom-checkbox--container">
+              {/* hide native checkbox */}
+             {/*  <input
+                className={"custom-checkbox"}
+                type="checkbox"
+                checked={linked}
+                onChange={() => onLinkedChange(id, !linked)}
+              /> */}
+              {/* visible custom checkbox */}
+              <div onClick={() => onLinkedChange(id, !linked)} className={`custom-checkbox ${linked ? "selected" : ""}`}></div>
+            </div>
           </div>
           <div className={`${"widgetColors"} ${"widgetBodyItem"}`}>
             <label>Badge colour</label>
@@ -57,7 +62,9 @@ export const Widget: React.FC<WidgetProps> = ({
               ).map((color) => (
                 <div
                   key={color}
-                  className={`${"colorBox"} ${color} ${selectedColor === color ? "badge-active": ""}`}
+                  className={`${"colorBox"} ${color} ${
+                    selectedColor === color ? "badge-active" : ""
+                  }`}
                   onClick={() => onColorChange(id, color)}
                 />
               ))}
