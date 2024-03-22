@@ -21,22 +21,24 @@ export const Widget: React.FC<WidgetProps> = ({
   const { id, type, amount, action, active, linked, selectedColor } = widget;
 
   return (
-    <div className={"widgetContainer"}>
+    <div className={"widget-container"}>
       <div className={"widget"}>
-        <div className={"widgetHeader " + selectedColor}>
-          <div className={"widgetIcon"}>
+        {/* widget header */}
+        <div className={"widget-header " + selectedColor}>
+          <div className={"widget-icon"}>
             <GreensparkLogo className="greenspark-logo" />
             <GreensparkTitle className="greenspark-title" />
           </div>
-          <div className={`widgetText`}>
+          <div className={`widget-text`}>
             <p>This product {action} </p>
             <span>
               {amount} {type}
             </span>
           </div>
         </div>
-        <div className={"widgetBody"}>
-          <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
+        {/* widget body */}
+        <div className={"widget-body"}>
+          <div className={`${"widget-toggle"} ${"widget-body-item"}`}>
             <div className="widget--tooltip">
               <span className="widget__tooltip-text">
                 Link to Public Profile
@@ -64,7 +66,7 @@ export const Widget: React.FC<WidgetProps> = ({
               ></div>
             </div>
           </div>
-          <div className={`${"widgetColors"} ${"widgetBodyItem"}`}>
+          <div className={`${"widget-colors"} ${"widget-body-item"}`}>
             <label>Badge colour</label>
             <div className={"colors"}>
               {/* Map over colors */}
@@ -73,7 +75,7 @@ export const Widget: React.FC<WidgetProps> = ({
               ).map((color) => (
                 <div
                   key={color}
-                  className={`${"colorBox"} ${color} ${
+                  className={`${"color-box"} ${color} ${
                     selectedColor === color ? "badge-active" : ""
                   }`}
                   onClick={() => onColorChange(id, color)}
@@ -81,7 +83,7 @@ export const Widget: React.FC<WidgetProps> = ({
               ))}
             </div>
           </div>
-          <div className={`${"widgetActivate"} ${"widgetBodyItem"}`}>
+          <div className={`${"widget-activate"} ${"widget-body-item"}`}>
             <span>Activate badge</span>
             <label className={"switch"}>
               <input

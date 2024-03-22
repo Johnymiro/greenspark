@@ -23,9 +23,18 @@ h3.widgets-title {
   color: var(--color-dark);
 }
 
+/* #root {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ width: 100vw
+} */
+
 .main--container {
   width: 851px;
-  height: 294px;
+  box-sizing: border-box;
+  height: 419px;
   border-radius: 8px;
   box-shadow: 0px 0.7777777910232544px 2.9907407760620117px 0px
       rgba(0, 0, 0, 0.012),
@@ -37,7 +46,7 @@ h3.widgets-title {
 
   margin-right: auto;
   margin-left: auto;
-  margin-top: 241px;
+  margin-top: 20%;
   padding: 36px;
   background-color: #f9f9f9;
 }
@@ -46,6 +55,8 @@ h3.widgets-title {
   display: flex;
   justify-content: space-between;
 }
+
+
 
 .blue {
   background-color: var(--color-primary);
@@ -64,7 +75,7 @@ h3.widgets-title {
 }
 
 /* Widget Component */
-.widgetContainer {
+.widget-container {
   width: 221.32px;
   height: 167px;
 }
@@ -74,7 +85,7 @@ h3.widgets-title {
   flex-direction: column;
 }
 
-.widgetHeader {
+.widget-header {
   display: flex;
   align-items: center;
   gap: 11.91px;
@@ -85,13 +96,13 @@ h3.widgets-title {
   padding-left: 11.91px;
 }
 
-.widgetHeader.green,
-.widgetHeader.blue,
-.widgetHeader.black {
+.widget-header.green,
+.widget-header.blue,
+.widget-header.black {
   color: var(--color-white);
 }
 
-.widgetIcon {
+.widget-icon {
   width: 39.7px;
   height: 45.41px;
   position: relative;
@@ -111,11 +122,11 @@ h3.widgets-title {
   height: 9.18px;
 }
 
-.widgetText p {
+.widget-text p {
   margin: 0;
   font-size: 12.41px;
 }
-.widgetText span {
+.widget-text span {
   font-size: 17.86px;
   line-height: 21.71px;
   font-weight: 700;
@@ -128,9 +139,9 @@ h3.widgets-title {
   color: var(--color-white);
 }
 
-.widgetBody .widgetToggle,
-.widgetBody .widgetColors,
-.widgetBody .widgetActivate {
+.widget-body .widget-toggle,
+.widget-body .widget-colors,
+.widget-body .widget-activate {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -142,15 +153,15 @@ h3.widgets-title {
   color: var(--color-success);
 }
 
-.widgetBody .widgetActivate,
-.widgetBody .widgetToggle {
+.widget-body .widget-activate,
+.widget-body .widget-toggle {
   justify-content: space-between;
 }
-.widgetBody .widget__tooltip-text {
+.widget-body .widget__tooltip-text {
   display: block;
   position: relative;
 }
-.widgetBody .widget__tooltip-text .profile-tooltip {
+.widget-body .widget__tooltip-text .profile-tooltip {
   position: absolute;
   bottom: 6px;
   right: -13px;
@@ -166,16 +177,16 @@ h3.widgets-title {
   outline-offset: -3.18px;
 }
 
-.colorBox {
+.color-box {
   width: 16px;
   height: 16px;
   cursor: pointer;
   box-shadow: 0px 4px 4px 0px #00000003;
 }
-.colorBox:hover {
+.color-box:hover {
   opacity: 0.8;
 }
-.colorBox + .colorBox {
+.color-box + .color-box {
   margin-left: 4px;
 }
 
@@ -323,4 +334,18 @@ h3.widgets-title {
 }
 .tooltip__profile-link:hover {
   opacity: 0.8;
+}
+
+/* Smaller devices  */
+@media only screen and (max-width: 851px) {
+  .main--container {
+    width: auto;
+    height: auto;
+    margin: 48px 22px 0px 22px;
+  }
+  .widgets--container {
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+  }
 }
