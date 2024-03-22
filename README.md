@@ -5,7 +5,7 @@ To run this project, follow these steps:
 Clone the Repository
 
 ```bash
-git clone https://github.com/greenspark.git
+git clone https://github.com/Johnymiro/greenspark.git
 cd greenspark
 ```
 
