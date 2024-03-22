@@ -27,7 +27,7 @@ This command will start the development server and open the application in your 
 
 ## Tooltip Component with Delayed Visibility
 
-This project demonstrates the implementation of a custom Tooltip component in a React application using TypeScript. The Tooltip component is designed to display additional information when the user hovers over an 'info' icon. It features a fade-in/out effect and remains visible if the mouse is hovered over the tooltip itself, allowing users to interact with its contents.
+This project demonstrates the implementation of a custom Tooltip component in a React application using TypeScript. The Tooltip component is designed to display additional information when the user hovers over an icon. It features a fade-in/out effect and remains visible if the mouse is hovered over the tooltip itself, allowing users to interact with its contents.
 
 #### Features
 
@@ -49,18 +49,21 @@ The motivation behind this implementation is to enhance user experience by provi
 How to Use the Tooltip Component
 The Tooltip component can be easily integrated into any part of your application. Simply import the Tooltip component and wrap any content that should appear within the tooltip:
 
-tsx
-Copy code
-import Tooltip from './Tooltip';
+```javascript
+import Tooltip from "./Tooltip";
 
 function App() {
-return (
-
-<div>
-<Tooltip>
-<p>Tooltip text here! You can <a href="/public-profile">View Public Profile</a></p>
-</Tooltip>
-</div>
-);
+  return (
+    <div>
+      <Tooltip>
+        <p>
+          Tooltip text here! You can{" "}
+          <a href="/public-profile">View Public Profile</a>
+        </p>
+      </Tooltip>
+    </div>
+  );
 }
+```
+
 The content inside the Tooltip component will be displayed when hovering over the 'info' icon. You can include any valid React nodes, including links, buttons, or formatted text.
