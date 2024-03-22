@@ -179,8 +179,6 @@ h3.widgets-title {
   margin-left: 4px;
 }
 
-
-
 /* Switch button styling */
 .switch {
   position: relative;
@@ -291,3 +289,38 @@ h3.widgets-title {
 }
 
 /* Tooltip */
+
+.tooltip-container .tooltip {
+  visibility: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  transition: 0.4s;
+  z-index: 1000;
+  width: 248px;
+  opacity: 0;
+  left: 8px;
+  top: 14px;
+  color: var(--color-dark);
+  font-size: 14px;
+  line-height: 17.01px;
+  font-weight: 400;
+  text-align: center;
+}
+.tooltip-container .tooltip.show {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip__profile-link {
+  color: var(--color-success);
+  display: block;
+  text-decoration: none;
+  margin-top: 12px;
+  font-weight: 700;
+}
+.tooltip__profile-link:hover {
+  opacity: 0.8;
+}

@@ -3,16 +3,13 @@ import React from "react";
 import { ProductWidget, WidgetColor } from "../types";
 import { ReactComponent as GreensparkLogo } from "../assets/greenspark-logo.svg";
 import { ReactComponent as GreensparkTitle } from "../assets/greenspark-title.svg";
-import { ReactComponent as Tooltip } from "../assets/info_outline.svg";
+import TooltipComp from "./Tooltip";
 
 interface WidgetProps {
   widget: ProductWidget;
   onColorChange: (id: number, color: WidgetColor) => void;
   onActiveChange: (id: number) => void;
   onLinkedChange: (id: number, linked: boolean) => void;
-}
-interface TooltipProps {
-  children: React.ReactNode;
 }
 
 export const Widget: React.FC<WidgetProps> = ({
@@ -21,12 +18,7 @@ export const Widget: React.FC<WidgetProps> = ({
   onActiveChange,
   onLinkedChange,
 }) => {
-  
   const { id, type, amount, action, active, linked, selectedColor } = widget;
-
-  React.useEffect(() => {
-    console.log("color slected:", { selectedColor, id });
-  }, [selectedColor]);
 
   return (
     <div className={"widgetContainer"}>
@@ -46,11 +38,22 @@ export const Widget: React.FC<WidgetProps> = ({
         <div className={"widgetBody"}>
           <div className={`${"widgetToggle"} ${"widgetBodyItem"}`}>
             <div className="widget--tooltip">
-              <span
-                className="widget__tooltip-text"
-              >
+              <span className="widget__tooltip-text">
                 Link to Public Profile
-                <Tooltip className="profile-tooltip" />
+                <div className="profile-tooltip">
+                  <TooltipComp>
+                    This widget links directly to your public profile so that
+                    you can easily share your impact with your customers. Turn
+                    it off here if you do not want the badge to link to it.
+                    <a
+                      className="tooltip__profile-link"
+                      href="https://johnymiro.pt"
+                      target="_blank"
+                    >
+                      View Public Profile
+                    </a>
+                  </TooltipComp>
+                </div>
               </span>
               <div></div>
             </div>

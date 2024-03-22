@@ -27,10 +27,10 @@ const Tooltip: React.FC<TooltipProps> = ({ children }) => {
     }, 300); // Delay of 300ms before hiding tooltip
   };
 
-  
+
   return (
     <div className="tooltip-container" onMouseLeave={hideTooltip}>
-      <TooltipIcon className="info-icon" onMouseOver={showTooltip}>i</TooltipIcon>
+      <TooltipIcon className="tooltip-icon" onMouseOver={showTooltip} />
       <div className={`tooltip ${isVisible ? 'show' : ''}`} ref={tooltipRef}>
         {children}
       </div>
