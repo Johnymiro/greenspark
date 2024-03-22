@@ -5,8 +5,8 @@ To run this project, follow these steps:
 Clone the Repository
 
 ```bash
-git clone https://github.com/your-repository-url.git
-cd your-project-directory
+git clone https://github.com/greenspark.git
+cd greenspark
 ```
 
 Install Dependencies
